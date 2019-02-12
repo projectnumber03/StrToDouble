@@ -13,19 +13,16 @@ public class Double {
         for (int i = k1; i < doubleSplit[0].length(); i++) {
             summ1 += charToInt(doubleSplit[0].charAt(i)) * Math.pow(10, doubleSplit[0].length() - i - 1);
         }
-        try{
+        if(doubleSplit.length == 2){
             for (int i = 0; i < doubleSplit[1].length(); i++) {
                 summ2 += charToInt(doubleSplit[1].charAt(i)) / Math.pow(10, i + 1);
             }
-        }catch (ArrayIndexOutOfBoundsException e){
-            System.out.println("В числе отсутствует дробная часть");
         }
         return k2 * (summ1 + summ2);
     }
 
     public static int charToInt(char chr) throws NumberFormatException {
-        if (chr > '0' && chr < '9') {
-            return (int) chr - '0';
-        } else throw new NumberFormatException();
+        if (chr >= '0' && chr <= '9') return (int) chr - '0';
+        throw new NumberFormatException();
     }
 }
